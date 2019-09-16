@@ -108,7 +108,7 @@ function html() {
 /* ====================  scss  ==================== */
 
 function styles() {
-  return src(`${path.src.styles}*.{sass, scss}`)
+  return src(`${path.src.styles}*.{scss, sass}`)
     .pipe(dev(plugin.sourcemaps.init()))
     .pipe(
       plugin.plumber({
@@ -161,11 +161,11 @@ function spritePng() {
   const spriteData = src(`${path.src.img}png/*.png`).pipe(
     plugin.spritesmith({
       imgName: 'sprite.png',
-      cssName: '_spritePng.sass',
+      cssName: '_spritePng.scss',
       cssFormat: 'scss',
       algorithm: 'binary-tree',
       padding: 4,
-      cssTemplate: `${path.src.styles}utils/spritePng.template.sass`,
+      cssTemplate: `${path.src.styles}utils/spritePng.template.scss`,
     })
   );
   const imgStream = spriteData.img.pipe(dest(path.src.img));
@@ -210,9 +210,9 @@ function spriteSvg() {
               dest: './',
               sprite: 'spriteSvg.svg',
               render: {
-                sass: {
-                  dest: '../styles/tmp/_spriteSvg.sass',
-                  template: `${path.src.styles}utils/spriteSvg.template.sass`,
+                scss: {
+                  dest: '../styles/tmp/_spriteSvg.scss',
+                  template: `${path.src.styles}utils/spriteSvg.template.scss`,
                 },
               },
               svg: {

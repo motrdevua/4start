@@ -2,7 +2,7 @@ const smartGrid = require('smart-grid');
 
 const options = {
   filename: 'smart-grid',
-  outputStyle: 'sass',
+  outputStyle: 'scss',
   columns: 12,
   offset: '30px',
   mobileFirst: false,
